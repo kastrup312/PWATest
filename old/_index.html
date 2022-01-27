@@ -4,8 +4,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>PWA test</title>
-  <link rel="canonical" href="https://kastrup312.github.io/PWATest/" />
-  <!-- <base href="/build">  <-- overvej når github pages - men har problem ved href="#" og derfor ikke gjort --> 
+
+  <!-- Understand this ( :( -> hardcoded githob repo) -->
+  <link rel="canonical" href="https://github.com/kastrup312/PWATest/settings/" />
+  
+  <!-- <base href="/PWATest/"> -->
   <!-- materialize icons, css & js -->
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="manifest" href="./manifest.json">
@@ -16,8 +19,10 @@
   <meta name="theme-color" content="#FFE1C4">
 </head>
 <body>
+  <!-- =============== KEEP THESE ======== -->
   <!-- Android Studio: http://10.0.2.2:5500 -->
-  <h1 class="h1-test">Hello 20</h1>
+  <!-- ServiceWorker for github pages: https://gist.github.com/kosamari/7c5d1e8449b2fbc97d372675f16b566e -->
+  <h1 class="h1-test">Hello 12</h1>
   <a href="./pages/dummy.html">The Dummy page</a>
   <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod nisl eget justo tincidunt vulputate. Curabitur posuere bibendum vehicula. Mauris cursus, elit sed congue posuere, nisi nulla rutrum ex, sed faucibus massa mauris eu nisl. Donec ex turpis, condimentum ac gravida in, laoreet ut mi. Vivamus posuere sem eu convallis tincidunt. Suspendisse porta magna ante, non tincidunt nunc imperdiet sed. Sed imperdiet tellus nisi, quis elementum mauris laoreet eu.  </p>>
   <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod nisl eget justo tincidunt vulputate. Curabitur posuere bibendum vehicula. Mauris cursus, elit sed congue posuere, nisi nulla rutrum ex, sed faucibus massa mauris eu nisl. Donec ex turpis, condimentum ac gravida in, laoreet ut mi. Vivamus posuere sem eu convallis tincidunt. Suspendisse porta magna ante, non tincidunt nunc imperdiet sed. Sed imperdiet tellus nisi, quis elementum mauris laoreet eu.  </p>>
@@ -25,7 +30,15 @@
   <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod nisl eget justo tincidunt vulputate. Curabitur posuere bibendum vehicula. Mauris cursus, elit sed congue posuere, nisi nulla rutrum ex, sed faucibus massa mauris eu nisl. Donec ex turpis, condimentum ac gravida in, laoreet ut mi. Vivamus posuere sem eu convallis tincidunt. Suspendisse porta magna ante, non tincidunt nunc imperdiet sed. Sed imperdiet tellus nisi, quis elementum mauris laoreet eu.  </p>>
   <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod nisl eget justo tincidunt vulputate. Curabitur posuere bibendum vehicula. Mauris cursus, elit sed congue posuere, nisi nulla rutrum ex, sed faucibus massa mauris eu nisl. Donec ex turpis, condimentum ac gravida in, laoreet ut mi. Vivamus posuere sem eu convallis tincidunt. Suspendisse porta magna ante, non tincidunt nunc imperdiet sed. Sed imperdiet tellus nisi, quis elementum mauris laoreet eu.  </p>>
 
-  <script src="./js/app.js"></script>
+  <!-- Replace ( :( -> hardcoded githob repo) -->
+  <!-- <script src="./js/app.js"></script> -->
+  <script>
+    if('serviceWorker' in navigator){
+        navigator.serviceWorker.register('/PWATest/sw.js', {scope: '/PWATest/'})
+          .then(reg => console.log('service worker registered', reg))
+          .catch(err => console.log('service worker not registered', err));
+      }
+  </script>
   <script src="./js/ui.js"></script>
 </body>
 </html>
